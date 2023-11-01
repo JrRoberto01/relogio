@@ -12,15 +12,19 @@ function mudarInfos(){
     let time = hora + ":" + minuto + ":" + segundo;
     document.getElementById('relogioDigital').innerText = time;
     /*Data*/
-    let dia = addZero(horas.getDay());
-    let mes = addZero(horas.getMonth());
+    let dia = addZero(horas.getDay() - 2);
+    let mes = addZero(horas.getMonth() + 1);
     let ano = addZero(horas.getFullYear());
     let dataCompleta = dia + "/" + mes + "/" + ano;
     document.getElementById('dataAtual').innerText = dataCompleta
 }
 /*Mudar Estilo*/
 function mudarTema(){
-    let bodyTag = document.body;
-    bodyTag.classList.add('nightModeBody');
+    let body_tag = document.body;
+    let text_h1 = document.getElementById('relogioDigital');
+    let text_h2 = document.getElementById('dataAtual');
+    text_h1.classList.toggle('nightModeBody');
+    text_h2.classList.toggle('nightModeBody');
+    body_tag.classList.toggle('nightModeBody');
 }
-setInterval(mudarInfos, 1000);
+setInterval(mudarInfos, 0);
